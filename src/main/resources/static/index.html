@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <title>Code with Divya</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #65ccb8;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            color: #ffffff; /* White */
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #2e2e2e; /* Dark Charcoal */
+        }
+        .highlight {
+            color: #1a3e59; /* Green */
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .emoji {
+            font-size: 3rem;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        .anomaly-section {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        .cube-container {
+            width: 50px;
+            height: 50px;
+            perspective: 400px;
+            margin: 20px auto;
+        }
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spinCube 2s infinite linear;
+        }
+        .cube div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: none; /* No background */
+            border: 2px solid #002d82; /* Indigo blue borders */
+        }
+        .cube .front  { transform: translateZ(25px); }
+        .cube .back   { transform: rotateY(180deg) translateZ(25px); }
+        .cube .right  { transform: rotateY(90deg) translateZ(25px); }
+        .cube .left   { transform: rotateY(-90deg) translateZ(25px); }
+        .cube .top    { transform: rotateX(90deg) translateZ(25px); }
+        .cube .bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+        @keyframes spinCube {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        .result {
+            display: none;
+            color: #2e8b57;
+            font-size: 1.2rem;
+        }
+        .result .tick {
+            color: green;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Welcome to Divya's Secure Website!</h1>
+    <div class="emoji">👋</div>
+    <p>
+        This website is now <span class="highlight">secured with SSL</span>,
+        ensuring that all your connections are <span class="highlight">safe</span> and <span class="highlight">encrypted</span>.
+    </p>
+    <p>
+        I'm testing my domain, and it's working perfectly on both mobile and desktop!
+    </p>
+    <p>
+        Feel free to explore and enjoy the secure experience. 😊
+    </p>
+    <div class="anomaly-section">
+        <p id="anomaly-text">Detecting anomalies...</p>
+        <div class="cube-container">
+            <div class="cube">
+                <div class="front"></div>
+                <div class="back"></div>
+                <div class="right"></div>
+                <div class="left"></div>
+                <div class="top"></div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        <p class="result" id="no-anomalies">
+            <span class="tick">✔</span> No anomalies found.
+        </p>
+    </div>
+    <div class="footer">
+        Made with ❤️ for my family and friends.
+    </div>
+</div>
+
+<script>
+    // Simulate anomaly detection process
+    setTimeout(() => {
+        document.getElementById('anomaly-text').style.display = 'none';
+        document.querySelector('.cube-container').style.display = 'none';
+        document.getElementById('no-anomalies').style.display = 'block';
+    }, 5000); // Wait for 5 seconds
+</script>
+</body>
+</html>
