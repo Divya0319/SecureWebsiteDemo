@@ -32,6 +32,7 @@
             font-weight: bold;
         }
         .footer {
+            text-align: center;
             margin-top: 20px;
             font-size: 0.9rem;
             color: #555;
@@ -49,10 +50,28 @@
             }
         }
         .anomaly-section {
+            text-align: center;
             margin-top: 30px;
+            margin-bottom: 20px;
             font-size: 1.5rem;
             position: relative;
         }
+
+        .advanced-message {
+            text-align: center;
+            color: #002d82; /* Matches the cube's glow */
+            font-family: 'Courier New', Courier, monospace; /* Techy font */
+            text-shadow: 0 0 10px #002d82, 0 0 20px #002d82;
+            font-size: 14px;
+            margin: 10px 0 0 0; /* Adjusts spacing to ensure proper alignment with the cube */
+            white-space: nowrap; /* Prevents text from breaking into multiple lines */
+        }
+
+        .cube-with-message {
+            display: block; /* Center-align as a block */
+            text-align: center;    /* Ensures both cube and text are aligned */
+        }
+
         .cube-container {
             width: 50px;
             height: 50px;
@@ -72,6 +91,7 @@
             height: 100%;
             background: none; /* No background */
             border: 2px solid #002d82; /* Indigo blue borders */
+            box-shadow: 0 0 10px #002d82, 0 0 20px #002d82, 0 0 30px #002d82;
         }
         .cube .front  { transform: translateZ(25px); }
         .cube .back   { transform: rotateY(180deg) translateZ(25px); }
@@ -97,6 +117,26 @@
             color: green;
             font-size: 1.5rem;
         }
+
+        /* Flex container for YouTube videos */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Add spacing between videos */
+            flex-wrap: wrap; /* Ensure videos stack on smaller screens */
+        }
+
+        .video-container iframe {
+            flex: 1 1 45%; /* Allow videos to take 45% width of the container */
+            max-width: 560px; /* Restrict maximum width */
+            height: 315px; /* Maintain video height */
+        }
+
+        @media (max-width: 768px) {
+            .video-container iframe {
+                flex: 1 1 100%; /* On small screens, videos take full width */
+            }
+        }
     </style>
 </head>
 <body>
@@ -108,23 +148,52 @@
         ensuring that all your connections are <span class="highlight">safe</span> and <span class="highlight">encrypted</span>.
     </p>
     <p>
-        I'm testing my domain, and it's working perfectly on both mobile and desktop!
+        While you are here, don't forget to check out my latest uploads on Youtube covering some amazing AWS services.
     </p>
+
+    <!-- Flex container for videos -->
+    <div class="video-container">
+
+        <iframe style="border: 0;"
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/RnouYATNHKg"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+        <iframe style="border: 0;"
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/ONe3utZuLQc"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+      </div>
+
+
     <p>
         Feel free to explore and enjoy the secure experience. 😊
     </p>
     <div class="anomaly-section">
-        <p id="anomaly-text">Detecting anomalies...</p>
-        <div class="cube-container">
-            <div class="cube">
-                <div class="front"></div>
-                <div class="back"></div>
-                <div class="right"></div>
-                <div class="left"></div>
-                <div class="top"></div>
-                <div class="bottom"></div>
+        <div class="cube-with-message">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="front"></div>
+                    <div class="back"></div>
+                    <div class="right"></div>
+                    <div class="left"></div>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
             </div>
+            <p class="advanced-message">Advanced Security Protocols: Engaged</p>
+
         </div>
+
         <p class="result" id="no-anomalies">
             <span class="tick">✔</span> No anomalies found.
         </p>
@@ -137,8 +206,7 @@
 <script>
     // Simulate anomaly detection process
     setTimeout(() => {
-        document.getElementById('anomaly-text').style.display = 'none';
-        document.querySelector('.cube-container').style.display = 'none';
+        document.querySelector('.cube-with-message').style.display = 'none';
         document.getElementById('no-anomalies').style.display = 'block';
     }, 5000); // Wait for 5 seconds
 </script>
