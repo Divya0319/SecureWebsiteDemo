@@ -67,6 +67,7 @@
         .footer {
             text-align: center;
             margin-top: 20px;
+            margin-bottom: 10px;
             font-size: 0.9rem;
             color: #555;
         }
@@ -103,6 +104,8 @@
         .cube-with-message {
             display: block; /* Center-align as a block */
             text-align: center;    /* Ensures both cube and text are aligned */
+            opacity: 1;
+            animation: fadeAway 3s ease-out 3s forwards; /* Fades out after 3 seconds */
         }
 
         .cube-container {
@@ -110,6 +113,7 @@
             height: 50px;
             perspective: 400px;
             margin: 20px auto;
+            animation: fadeAway 3s ease-out 3s forwards; /* Fades out after 3 seconds */
         }
         .cube {
             width: 100%;
@@ -203,11 +207,21 @@
                 flex: 1 1 100%; /* On small screens, videos take full width */
             }
         }
+
+        @keyframes fadeAway {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
     </style>
 </head>
 <body>
 <div>
-    <h1>Welcome to Divya's Secure Website!</h1>
+    <h1>Welcome to Divya's Secure Hub—where safety meets innovation!</h1>
     <!--<div class="emoji">👋</div>-->
 
     <div class="anomaly-section">
@@ -226,14 +240,13 @@
 
         </div>
 
-        <p class="result" id="no-anomalies">
-            <span class="tick">✔</span> No anomalies found.
-        </p>
+<!--        <p class="result" id="no-anomalies">-->
+<!--            <span class="tick">✔</span> No anomalies found.-->
+<!--        </p>-->
     </div>
 
     <p>
-        This website is now <span class="highlight">secured with SSL</span>,
-        ensuring that all your connections are <span class="highlight">safe</span> and <span class="highlight">encrypted</span>.
+        Your connection is so secure, even secret agents are jealous! 🕵️‍♀️🔒 Surf away, worry-free!
     </p>
     <p>
         While you are here, don't forget to check out my latest uploads on Youtube covering some amazing AWS services.
@@ -264,7 +277,7 @@
     </p>
 
     <div class="footer">
-        Made with ❤️ for my family and friends.
+        Designed to share knowledge, inspire creativity, and spark innovation in the tech community ❤️
     </div>
 </div>
 
