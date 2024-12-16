@@ -1,21 +1,18 @@
 package com.fastturtle.securewebsitedemo.controllers;
 
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Locale;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LanguageController {
 
-    @RequestMapping("/setLanguage")
-    public String setLanguage(@RequestParam("lang") String lang, HttpServletRequest request) {
-        Locale locale = new Locale(lang);
-        LocaleContextHolder.setLocale(locale);
-        return "redirect:/";
+    @GetMapping("/language")
+    public ModelAndView language() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+
+        return modelAndView;
     }
 
 }

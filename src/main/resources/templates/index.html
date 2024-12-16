@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -221,19 +221,18 @@
 </head>
 <body>
 <div>
-    <h1>Welcome to Divya's Secure Hub—where safety meets innovation!</h1>
+    <h1 data-th-text="#{label.welcome}"></h1>
     <!--<div class="emoji">👋</div>-->
 
-    <p>Change Language</p>
-    <form action="/setLanguage" method="get">
-        <select name="lang" onchange="this.form.submit()">
-            <option value="en">English</option>
-            <option value="hi">Hindi</option>
-            <option value="kn">Kannada</option>
-            <option value="bn">Bengali</option>
-            <option value="mr">Marathi</option>
-        </select>
-    </form>
+    <p data-th-text="#{label.chooselang}"></p>
+    <div>
+        <span>
+            <a href="/language?lang=en" data-th-text="#{label.lang.en}"></a>&nbsp;&nbsp;&nbsp;
+            <a href="/language?lang=hi" data-th-text="#{label.lang.hi}"></a>&nbsp;&nbsp;&nbsp;
+<!--            <a href="/language?lang=kn" data-th-text="#{label.lang.kn}"></a>&nbsp;&nbsp;&nbsp;-->
+        </span>
+
+    </div>
 
     <div class="anomaly-section">
         <div class="cube-with-message">
@@ -247,7 +246,7 @@
                     <div class="bottom"></div>
                 </div>
             </div>
-            <p class="advanced-message">Advanced Security Protocols: Engaged</p>
+            <p class="advanced-message" data-th-text="#{label.advancedprotocol}"></p>
 
         </div>
 
@@ -256,26 +255,22 @@
 <!--        </p>-->
     </div>
 
-    <p>
-        Your connection is so secure, even secret agents are jealous! 🕵️‍♀️🔒 Surf away, worry-free!
-    </p>
-    <p>
-        While you are here, don't forget to check out my latest uploads on Youtube covering some amazing AWS services.
-    </p>
+    <p data-th-text="#{label.connectionsecure}"></p>
+    <p data-th-text="#{label.whileyouarehere}"></p>
 
     <!-- Flex container for videos -->
     <div class="video-container">
 
         <iframe style="border: 0;"
             src="https://www.youtube-nocookie.com/embed/RnouYATNHKg"
-            title="YouTube video player"
+            title="AWS Lambda YT video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
 
         <iframe style="border: 0;"
             src="https://www.youtube-nocookie.com/embed/ONe3utZuLQc"
-            title="YouTube video player"
+            title="AWS Launch templates YT video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
@@ -283,13 +278,9 @@
       </div>
 
 
-    <p>
-        Feel free to explore and enjoy the secure experience. 😊
-    </p>
+    <p data-th-text="#{label.feelfree}"></p>
 
-    <div class="footer">
-        Designed to share knowledge, inspire creativity, and spark innovation in the tech community ❤️
-    </div>
+    <div class="footer" data-th-text="#{label.designedtoshare}"></div>
 </div>
 
 <script>
