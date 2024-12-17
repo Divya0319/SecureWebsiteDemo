@@ -263,14 +263,14 @@
     <div class="video-container">
 
         <iframe style="border: 0;"
-            src="https://www.youtube-nocookie.com/embed/RnouYATNHKg"
+            th:src="@{'https://www.youtube.com/embed/RnouYATNHKg?hl=' + ${chosenLanguage}}"
             title="AWS Lambda YT video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
 
         <iframe style="border: 0;"
-            src="https://www.youtube-nocookie.com/embed/ONe3utZuLQc"
+            th:src="@{'https://www.youtube.com/embed/ONe3utZuLQc?hl=' + ${chosenLanguage}}"
             title="AWS Launch templates YT video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
