@@ -11,6 +11,7 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import java.time.Duration;
 import java.util.Locale;
 
 @Configuration
@@ -33,7 +34,7 @@ public class MessageConfig implements WebMvcConfigurer {
 //        return slr;
         CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver("preferredLanguage");
         cookieLocaleResolver.setDefaultLocale(Locale.ENGLISH); // Default language
-        cookieLocaleResolver.setCookieMaxAge(3600); // Expiry time in seconds (1 hour here)
+        cookieLocaleResolver.setCookieMaxAge(Duration.ofHours(1)); // Expiry time in seconds (1 hour here)
         return cookieLocaleResolver;
     }
 
