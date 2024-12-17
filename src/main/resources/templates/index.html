@@ -227,10 +227,10 @@
     <p data-th-text="#{label.chooselang}"></p>
     <div>
         <span>
-            <a href="/language?lang=en" data-th-text="#{label.lang.en}"></a>&nbsp;&nbsp;&nbsp;
-            <a href="/language?lang=hi" data-th-text="#{label.lang.hi}"></a>&nbsp;&nbsp;&nbsp;
-            <a href="/language?lang=hne" data-th-text="#{label.lang.hne}"></a>&nbsp;&nbsp;&nbsp;
-            <a href="/language?lang=kn" data-th-text="#{label.lang.kn}"></a>&nbsp;&nbsp;&nbsp;
+            <a href="/?lang=en" data-th-text="#{label.lang.en}"></a>&nbsp;&nbsp;&nbsp;
+            <a href="/?lang=hi" data-th-text="#{label.lang.hi}"></a>&nbsp;&nbsp;&nbsp;
+            <a href="/?lang=hne" data-th-text="#{label.lang.hne}"></a>&nbsp;&nbsp;&nbsp;
+            <a href="/?lang=kn" data-th-text="#{label.lang.kn}"></a>&nbsp;&nbsp;&nbsp;
         </span>
 
     </div>
@@ -292,25 +292,5 @@
     }, 5000); // Wait for 5 seconds
 </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Check if the 'preferredLanguage' cookie is present
-        const cookies = document.cookie.split('; ').reduce((acc, cookie) => {
-            const [key, value] = cookie.split('=');
-            acc[key] = value;
-            return acc;
-        }, {});
-
-        const preferredLanguage = cookies['preferredLanguage'];
-        const currentLang = new URLSearchParams(window.location.search).get('lang');
-
-        // Append 'lang' parameter to URL if not already present
-        if (preferredLanguage && currentLang !== preferredLanguage) {
-            const newUrl = new URL(window.location.href);
-            newUrl.searchParams.set('lang', preferredLanguage);
-            window.history.replaceState({}, '', newUrl); // Update URL without reloading
-        }
-    });
-</script>
 </body>
 </html>
