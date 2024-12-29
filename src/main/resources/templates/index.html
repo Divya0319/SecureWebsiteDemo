@@ -34,6 +34,8 @@
             background: #65ccb8;
             color: #333;
             text-align: center;
+            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
         h1 {
             color: #ffffff; /* White */
@@ -44,23 +46,13 @@
             color: #2e2e2e; /* Dark Charcoal */
         }
 
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-        }
-
         iframe {
             width: 100%;
-            max-width: 560px; /* Maintain upper limit */
+            /*max-width: 560px; !* Maintain upper limit *!*/
             height: auto;
             aspect-ratio: 16/9; /* Keeps the aspect ratio */
             margin: 0 auto; /* Center align the iframe */
-            display: block; /* Ensures centering works */
+            /*display: block; !* Ensures centering works *!*/
         }
         .highlight {
             color: #1a3e59; /* Green */
@@ -231,7 +223,6 @@
             border-radius: 4px; /* Slightly rounded corners */
             z-index: 1; /* Ensures tag appears above everything */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Adds subtle shadow */
-            width: 120px; /* Fixed width for the tag */
             text-align: center; /* Center-align text */
             white-space: nowrap; /* Prevent text wrapping */
         }
@@ -250,93 +241,93 @@
     </style>
 </head>
 <body>
-<div>
-    <h1 data-th-text="#{label.welcome}"></h1>
-    <!--<div class="emoji">👋</div>-->
-
-    <p data-th-text="#{label.chooselang}"></p>
     <div>
-        <span>
-            <a href="/?lang=en" data-th-text="#{label.lang.en}"></a>&nbsp;&nbsp;&nbsp;
-            <a href="/?lang=hi" data-th-text="#{label.lang.hi}"></a>&nbsp;&nbsp;&nbsp;
-            <a href="/?lang=hne" data-th-text="#{label.lang.hne}"></a>&nbsp;&nbsp;&nbsp;
-            <a href="/?lang=kn" data-th-text="#{label.lang.kn}"></a>&nbsp;&nbsp;&nbsp;
-        </span>
+        <h1 data-th-text="#{label.welcome}"></h1>
+        <!--<div class="emoji">👋</div>-->
 
-    </div>
+        <p data-th-text="#{label.chooselang}"></p>
+        <div>
+            <span>
+                <a href="/?lang=en" data-th-text="#{label.lang.en}"></a>&nbsp;&nbsp;&nbsp;
+                <a href="/?lang=hi" data-th-text="#{label.lang.hi}"></a>&nbsp;&nbsp;&nbsp;
+                <a href="/?lang=hne" data-th-text="#{label.lang.hne}"></a>&nbsp;&nbsp;&nbsp;
+                <a href="/?lang=kn" data-th-text="#{label.lang.kn}"></a>&nbsp;&nbsp;&nbsp;
+            </span>
 
-    <div class="anomaly-section">
-        <div class="cube-with-message">
-            <div class="cube-container">
-                <div class="cube">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                    <div class="right"></div>
-                    <div class="left"></div>
-                    <div class="top"></div>
-                    <div class="bottom"></div>
+        </div>
+
+        <div class="anomaly-section">
+            <div class="cube-with-message">
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                        <div class="right"></div>
+                        <div class="left"></div>
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                    </div>
                 </div>
-            </div>
-            <p class="advanced-message" data-th-text="#{label.advancedprotocol}"></p>
+                <p class="advanced-message" data-th-text="#{label.advancedprotocol}"></p>
 
+            </div>
+
+    <!--        <p class="result" id="no-anomalies">-->
+    <!--            <span class="tick">✔</span> No anomalies found.-->
+    <!--        </p>-->
         </div>
 
-<!--        <p class="result" id="no-anomalies">-->
-<!--            <span class="tick">✔</span> No anomalies found.-->
-<!--        </p>-->
+        <p data-th-text="#{label.connectionsecure}"></p>
+        <p data-th-text="#{label.whileyouarehere}"></p>
+
+        <!-- Flex container for videos -->
+        <div class="video-container">
+
+            <div class="newly-added-section">
+                <span class="newly-added-tag" data-th-text="#{label.newlyadded}"></span>
+                <iframe class="video-frame"
+                        style="border: 0;"
+                        src="https://www.youtube.com/embed/vh-NYA8TRRc"
+                        title="AWS Load Balancers YT video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+
+            <iframe
+                class="video-frame"
+                style="border: 0;"
+                th:src="@{'https://www.youtube.com/embed/RnouYATNHKg?hl=' + ${chosenLanguage}}"
+                title="AWS Lambda YT video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+            <iframe
+                class="video-frame"
+                style="border: 0;"
+                th:src="@{'https://www.youtube.com/embed/ONe3utZuLQc?hl=' + ${chosenLanguage}}"
+                title="AWS Launch templates YT video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+          </div>
+
+
+        <p data-th-text="#{label.feelfree}"></p>
+
+        <div class="footer" data-th-text="#{label.designedtoshare}"></div>
     </div>
 
-    <p data-th-text="#{label.connectionsecure}"></p>
-    <p data-th-text="#{label.whileyouarehere}"></p>
-
-    <!-- Flex container for videos -->
-    <div class="video-container">
-
-        <div class="newly-added-section">
-            <span class="newly-added-tag" data-th-text="#{label.newlyadded}"></span>
-            <iframe class="video-frame"
-                    style="border: 0;"
-                    th:src="@{'https://www.youtube.com/embed/vh-NYA8TRRc'}"
-                    title="AWS Load Balancers YT video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-        </div>
-
-
-        <iframe
-            class="video-frame"
-            style="border: 0;"
-            th:src="@{'https://www.youtube.com/embed/RnouYATNHKg?hl=' + ${chosenLanguage}}"
-            title="AWS Lambda YT video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-
-        <iframe
-            class="video-frame"
-            style="border: 0;"
-            th:src="@{'https://www.youtube.com/embed/ONe3utZuLQc?hl=' + ${chosenLanguage}}"
-            title="AWS Launch templates YT video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-
-      </div>
-
-
-    <p data-th-text="#{label.feelfree}"></p>
-
-    <div class="footer" data-th-text="#{label.designedtoshare}"></div>
-</div>
-
-<script>
-    // Simulate anomaly detection process
-    setTimeout(() => {
-        document.querySelector('.cube-with-message').style.display = 'none';
-        document.getElementById('no-anomalies').style.display = 'block';
-    }, 5000); // Wait for 5 seconds
-</script>
+    <script>
+        // Simulate anomaly detection process
+        setTimeout(() => {
+            document.querySelector('.cube-with-message').style.display = 'none';
+            document.getElementById('no-anomalies').style.display = 'block';
+        }, 5000); // Wait for 5 seconds
+    </script>
 
 </body>
 </html>
