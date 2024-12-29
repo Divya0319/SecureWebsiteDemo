@@ -21,6 +21,8 @@
     <meta property="og:type" content="website">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -217,6 +219,34 @@
             }
         }
 
+        .newly-added-tag {
+            position: absolute; /* Tag positioned relative to its container */
+            top: -15px; /* Adjust to place outside the video boundary */
+            left: 15px; /* Align to the left outside the frame */
+            background-color: red; /* Tag background color */
+            color: white; /* Text color */
+            font-size: 0.9rem; /* Slightly smaller text size */
+            font-weight: bold;
+            padding: 5px 10px; /* Padding for the tag */
+            border-radius: 4px; /* Slightly rounded corners */
+            z-index: 1; /* Ensures tag appears above everything */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Adds subtle shadow */
+            width: 120px; /* Fixed width for the tag */
+            text-align: center; /* Center-align text */
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .newly-added-section {
+            position: relative; /* Required for absolute positioning of the tag */
+            flex: 1 1 45%; /* Ensure consistency with other videos */
+        }
+
+        .video-frame {
+            width: 100%; /* Full width for consistent appearance */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensures it doesn’t inline with text */
+        }
+
     </style>
 </head>
 <body>
@@ -262,14 +292,30 @@
     <!-- Flex container for videos -->
     <div class="video-container">
 
-        <iframe style="border: 0;"
+        <div class="newly-added-section">
+            <span class="newly-added-tag" data-th-text="#{label.newlyadded}"></span>
+            <iframe class="video-frame"
+                    style="border: 0;"
+                    th:src="@{'https://www.youtube.com/embed/vh-NYA8TRRc'}"
+                    title="AWS Load Balancers YT video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+
+        <iframe
+            class="video-frame"
+            style="border: 0;"
             th:src="@{'https://www.youtube.com/embed/RnouYATNHKg?hl=' + ${chosenLanguage}}"
             title="AWS Lambda YT video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
 
-        <iframe style="border: 0;"
+        <iframe
+            class="video-frame"
+            style="border: 0;"
             th:src="@{'https://www.youtube.com/embed/ONe3utZuLQc?hl=' + ${chosenLanguage}}"
             title="AWS Launch templates YT video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
