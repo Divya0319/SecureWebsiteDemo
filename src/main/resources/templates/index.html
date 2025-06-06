@@ -275,7 +275,7 @@
                         <div class="bottom"></div>
                     </div>
                 </div>
-                <p class="advanced-message" data-th-text="#{label.advancedprotocol}"></p>
+                <p class="advanced-message" data-th-text="#{label.securitycheckpassed}"></p>
 
             </div>
 
@@ -294,8 +294,8 @@
                 <span class="newly-added-tag" data-th-text="#{label.newlyadded}"></span>
                 <iframe class="video-frame"
                         style="border: 0;"
-                        th:src="@{'https://www.youtube.com/embed/nnpbyLDR4rI?hl=' + ${chosenLanguage}}"
-                        title="AWS Load Balancers YT video"
+                        th:src="@{'https://www.youtube.com/embed/6EdGjxLXPGs?hl=' + ${chosenLanguage}}"
+                        title="AWS Auto Scaling Groups YT video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                 </iframe>
@@ -324,7 +324,7 @@
                     class="video-frame"
                     style="border: 0;"
                     th:src="@{'https://www.youtube.com/embed/FpACLwYYvtw?hl=' + ${chosenLanguage}}"
-                    title="AWS Launch templates YT video"
+                    title="AWS Load Balancers YT video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
             </iframe>
@@ -334,7 +334,18 @@
 
         <p data-th-text="#{label.feelfree}"></p>
 
-        <div class="footer" data-th-text="#{label.designedtoshare}"></div>
+        <section id="contact" class="contact-section">
+            <h2 data-th-text="#{label.contactme}"></h2>
+            <p data-th-text="#{label.reachout}"></p>
+            <ul class="contact-list">
+                <li>Email: <a href="mailto:divygupta0319@gmail.com">divygupta0319@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/divya-gupta-055665133" target="_blank">linkedin.com/in/divya-gupta-055665133</a></li>
+                <li>GitHub: <a href="https://github.com/Divya0319" target="_blank">github.com/Divya0319</a></li>
+                <li>YouTube: <a href="https://www.youtube.com/@divyagupta6854" target="_blank">youtube.com/@codewithdivya</a></li>
+            </ul>
+        </section>
+
+        <div class="footer" data-th-text="#{label.builttoshare}"></div>
     </div>
 
     <script>
